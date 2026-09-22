@@ -2,355 +2,292 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!--
   ============================================================
-  CARA MENGEDIT HALAMAN INI
-
-  Cari tulisan GANTI di bawah. Hanya bagian itu yang perlu
-  diubah. Tulisan yang diapit tanda kurung siku dengan tanda
-  seru adalah catatan, tidak ikut tampil di halaman.
-
-  Jangan ubah bagian <style> kecuali sudah paham CSS.
-  Kalau halaman jadi berantakan, buka tab History di repo
-  lalu kembalikan ke versi sebelumnya.
+  PANDUAN EDIT HALAMAN PROFIL
+  ------------------------------------------------------------
+  Cari teks berawalan  GANTI: ... untuk memperbarui data.
+  Semua variabel warna dan styling telah dirancang agar bersih,
+  responsif, dan mudah dipelihara.
   ============================================================
 -->
 
-<!-- GANTI: nama kamu -->
-<title>Muhammad Rabani Hanafiah</title>
+<!-- GANTI: Nama Kamu pada Title Browser -->
+<title>Muhammad Rabani Hanafiah - Resume & Portofolio</title>
 
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+        colors: {
+          brand: {
+            50: '#ecfdf5',
+            100: '#d1fae5',
+            500: '#10b981',
+            600: '#059669',
+            700: '#047857',
+            900: '#064e3b',
+          }
+        }
+      }
+    }
+  }
+</script>
 
 <style>
-  :root {
-    --deep:   #12231a;
-    --deep-2: #1d3428;
-    --paper:  #f1f5ee;
-    --card:   #ffffff;
-    --rule:   #cfdcd2;
-    --ink:    #12231a;
-    --soft:   #5f7167;
-    --mark:   #b8452f;
-    --mint:   #9ec2a9;
-    --serif:  "Newsreader", Georgia, "Times New Roman", serif;
-    --sans:   "Karla", "Helvetica Neue", Arial, sans-serif;
+  /* Custom Smooth Scrolling & Print Enhancements */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
   }
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.65;
-  }
-
-  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px 72px; }
-
-  /* ---------------- kepala halaman ---------------- */
-
-  .hero {
-    position: relative;
-    background: var(--deep);
-    background-image: repeating-linear-gradient(
-      to bottom,
-      transparent 0, transparent 37px,
-      rgba(158,194,169,.13) 37px, rgba(158,194,169,.13) 38px
-    );
-    color: var(--paper);
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: "";
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 10px;
-    background: var(--mark);
-  }
-
-  .hero-inner {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 76px 20px 64px 38px;
-  }
-
-  h1 {
-    font-family: var(--serif);
-    font-size: clamp(38px, 8vw, 68px);
-    font-weight: 600;
-    line-height: 1.04;
-    letter-spacing: -0.025em;
-    margin: 0 0 10px;
-  }
-
-  .role {
-    color: var(--mint);
-    font-size: clamp(16px, 2.2vw, 19px);
-    margin: 0;
-    max-width: 34em;
-  }
-
-  .hero-line {
-    width: 74px;
-    height: 3px;
-    background: var(--mark);
-    margin: 26px 0 0;
-  }
-
-  /* ---------------- kartu data ---------------- */
-
-  .card {
-    background: var(--card);
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    padding: 6px 22px;
-    margin-top: -34px;
-    position: relative;
-    box-shadow: 0 1px 0 rgba(18,35,26,.04);
-  }
-
-  .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 20px;
-    padding: 11px 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .row:last-child { border-bottom: 0; }
-
-  .row dt { color: var(--soft); font-size: 15px; flex: 0 0 auto; }
-
-  .row dd {
-    margin: 0;
-    text-align: right;
-    font-variant-numeric: tabular-nums;
-    font-weight: 500;
-    overflow-wrap: anywhere;
-  }
-
-  /* ---------------- bagian isi ---------------- */
-
-  section { margin-top: 46px; }
-
-  h2 {
-    font-family: var(--serif);
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0 0 18px;
-    padding-left: 15px;
-    border-left: 4px solid var(--mark);
-    line-height: 1.25;
-  }
-
-  p { margin: 0 0 14px; }
-  .lead { font-size: 17.5px; max-width: 62ch; }
-
-  /* ---------------- pengalaman ---------------- */
-
-  .item {
-    background: var(--card);
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    padding: 18px 22px;
-    margin-bottom: 14px;
-  }
-  .item:last-child { margin-bottom: 0; }
-
-  .item h3 {
-    font-family: var(--serif);
-    font-size: 19px;
-    font-weight: 600;
-    margin: 0;
-    line-height: 1.3;
-  }
-
-  .meta {
-    color: var(--mark);
-    font-size: 14px;
-    font-weight: 700;
-    margin: 4px 0 8px;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .item p { margin: 0; color: #35473c; }
-
-  /* ---------------- kemampuan ---------------- */
-
-  .tags { display: flex; flex-wrap: wrap; gap: 9px; padding: 0; margin: 0; list-style: none; }
-
-  .tags li {
-    background: var(--deep);
-    color: var(--paper);
-    border-radius: 999px;
-    padding: 7px 16px;
-    font-size: 14.5px;
-    font-weight: 500;
-  }
-
-  /* ---------------- kontak ---------------- */
-
-  .contact { background: var(--deep); border: 0; border-radius: 4px; padding: 6px 22px; margin-top: 0; box-shadow: none; }
-  .contact .row { border-bottom-color: rgba(158,194,169,.22); }
-  .contact .row dt { color: var(--mint); }
-  .contact .row dd { color: var(--paper); }
-
-  a { color: inherit; text-decoration-color: var(--mark); text-decoration-thickness: 2px; text-underline-offset: 4px; }
-  a:hover { color: var(--mint); }
-  a:focus-visible { outline: 2px solid var(--mark); outline-offset: 3px; border-radius: 2px; }
-
-  footer {
-    margin-top: 46px;
-    padding-top: 18px;
-    border-top: 1px solid var(--rule);
-    color: var(--soft);
-    font-size: 14px;
-  }
-
-  @media (max-width: 560px) {
-    .hero-inner { padding: 54px 18px 48px 30px; }
-    .card { padding: 4px 16px; margin-top: -26px; }
-    .row { flex-direction: column; gap: 0; padding: 9px 0; }
-    .row dd { text-align: left; }
-    .contact { padding: 4px 16px; margin-top: 0; }
-    .item { padding: 16px 18px; }
+  
+  ::selection {
+    background-color: #d1fae5;
+    color: #064e3b;
   }
 
   @media print {
-    body { background: #fff; }
-    .hero { background: #fff; color: #12231a; background-image: none; }
-    .role { color: #5f7167; }
-    .tags li { background: #fff; color: #12231a; border: 1px solid #cfdcd2; }
-    .contact { background: #fff; border: 1px solid #cfdcd2; }
-    .contact dt { color: #5f7167; }
-    .contact dd { color: #12231a; }
-    .card, .item { box-shadow: none; }
+    body {
+      background-color: #ffffff !important;
+      color: #0f172a !important;
+    }
+    .no-print {
+      display: none !important;
+    }
+    .print-card {
+      border: 1px solid #e2e8f0 !important;
+      box-shadow: none !important;
+      break-inside: avoid;
+    }
   }
 </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-emerald-100 selection:text-emerald-900 min-h-screen flex flex-col justify-between">
 
-<header class="hero">
-  <div class="hero-inner">
-    <!-- GANTI: nama lengkap kamu -->
-    <h1>Muhammad Rabani Hanafiah</h1>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full space-y-8 sm:space-y-10">
 
-    <!-- GANTI: program studi dan kampus -->
-    <p class="role">Mahasiswa Komputerisasi Akuntansi, Universitas Komputer Indonesia</p>
+    <!-- Header / Profile Section -->
+    <header class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-sm print-card transition-all duration-200 hover:shadow-md">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        
+        <div class="flex items-center space-x-5">
+          <!-- Initial Avatar -->
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white flex items-center justify-center text-2xl sm:text-3xl font-bold shadow-inner flex-shrink-0 tracking-wider">
+            RH
+          </div>
+          <div>
+            <!-- GANTI: Nama Lengkap -->
+            <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+              Muhammad Rabani Hanafiah
+            </h1>
+            <!-- GANTI: Program Studi & Kampus -->
+            <p class="text-emerald-600 font-medium text-sm sm:text-base mt-1 flex items-center gap-1.5">
+              <span>Mahasiswa Komputerisasi Akuntansi</span>
+              <span class="text-slate-300">•</span>
+              <span class="text-slate-600">Universitas Komputer Indonesia</span>
+            </p>
+          </div>
+        </div>
 
-    <div class="hero-line"></div>
+        <!-- Status Badge -->
+        <div class="no-print self-start sm:self-center">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200/60">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
+            Aktif Kuliah
+          </span>
+        </div>
+      </div>
+
+      <!-- Quick Metadata Grid -->
+      <div class="mt-8 pt-6 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
+        <div>
+          <span class="text-slate-400 block text-xs uppercase tracking-wider font-semibold">NIM</span>
+          <!-- GANTI: NIM -->
+          <span class="font-mono text-slate-700 font-medium">11025010</span>
+        </div>
+        <div>
+          <span class="text-slate-400 block text-xs uppercase tracking-wider font-semibold">Angkatan</span>
+          <!-- GANTI: Angkatan -->
+          <span class="text-slate-700 font-medium">2025</span>
+        </div>
+        <div>
+          <span class="text-slate-400 block text-xs uppercase tracking-wider font-semibold">Domisili</span>
+          <!-- GANTI: Domisili -->
+          <span class="text-slate-700 font-medium">Bandung</span>
+        </div>
+        <div class="col-span-2 sm:col-span-1">
+          <span class="text-slate-400 block text-xs uppercase tracking-wider font-semibold">Email Student</span>
+          <!-- GANTI: Email -->
+          <a href="mailto:rabani.11025010@mahasiswa.unikom.ac.id" class="text-slate-700 hover:text-emerald-600 font-medium font-mono text-xs truncate block transition-colors">
+            rabani.11025010@...
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Section Grid -->
+    <main class="space-y-8">
+
+      <!-- Tentang Saya -->
+      <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-sm print-card">
+        <h2 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+          Tentang Saya
+        </h2>
+        <!-- GANTI: Deskripsi Singkat Diri -->
+        <p class="text-slate-600 leading-relaxed text-base">
+          Mahasiswa semester tiga yang memiliki ketertarikan tinggi pada pencatatan keuangan berbasis sistem informasi. Terbiasa mengolah data transaksi menggunakan Microsoft Excel, menyusun laporan keuangan sederhana, serta saat ini aktif mempelajari SQL untuk pengelolaan dan penarikan data dari basis data.
+        </p>
+      </section>
+
+      <!-- Kemampuan / Skills -->
+      <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-sm print-card">
+        <h2 class="text-lg font-bold text-slate-900 mb-5 flex items-center gap-2">
+          <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+          </svg>
+          Kemampuan & Keahlian
+        </h2>
+        <!-- GANTI: Daftar Kemampuan -->
+        <div class="flex flex-wrap gap-2 sm:gap-2.5">
+          <span class="px-3.5 py-1.5 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-slate-700 font-medium text-sm rounded-lg border border-slate-200/60 transition-colors">Microsoft Excel</span>
+          <span class="px-3.5 py-1.5 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-slate-700 font-medium text-sm rounded-lg border border-slate-200/60 transition-colors">VLOOKUP & Pivot Table</span>
+          <span class="px-3.5 py-1.5 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-slate-700 font-medium text-sm rounded-lg border border-slate-200/60 transition-colors">Jurnal & Laporan Keuangan</span>
+          <span class="px-3.5 py-1.5 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-slate-700 font-medium text-sm rounded-lg border border-slate-200/60 transition-colors">Zahir Accounting</span>
+          <span class="px-3.5 py-1.5 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-slate-700 font-medium text-sm rounded-lg border border-slate-200/60 transition-colors">MYOB</span>
+          <span class="px-3.5 py-1.5 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-slate-700 font-medium text-sm rounded-lg border border-slate-200/60 transition-colors">SQL Dasar</span>
+          <span class="px-3.5 py-1.5 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-slate-700 font-medium text-sm rounded-lg border border-slate-200/60 transition-colors">Git & GitHub</span>
+        </div>
+      </section>
+
+      <!-- Pengalaman -->
+      <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-sm print-card">
+        <h2 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+          <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 1321 13.255A2.368 2.368 0 0112 13c-.482 0-.939.144-1.255.37L3 7.5m18 0v9.5A2.5 2.5 0 0118.5 19.5h-13A2.5 2.5 0 013 17V7.5m18 0A2.5 2.5 0 0018.5 5h-13A2.5 2.5 0 003 7.5" />
+          </svg>
+          Pengalaman
+        </h2>
+        
+        <div class="space-y-6">
+          <!-- GANTI: Pengalaman Item 1 -->
+          <div class="relative pl-6 border-l-2 border-emerald-500/30 hover:border-emerald-500 transition-colors">
+            <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-white border-2 border-emerald-500"></div>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1.5">
+              <h3 class="font-semibold text-slate-900 text-base">Backend Developer — PT. Swamedia Informatika</h3>
+              <span class="text-xs font-mono font-medium text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full w-fit">2023 – 2024</span>
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Bertanggung jawab dalam menyusun, memelihara, dan mengoptimalkan laporan basis data untuk kebutuhan analisis data internal.
+            </p>
+          </div>
+
+          <!-- GANTI: Pengalaman Item 2 -->
+          <div class="relative pl-6 border-l-2 border-emerald-500/30 hover:border-emerald-500 transition-colors">
+            <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-white border-2 border-emerald-500"></div>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1.5">
+              <h3 class="font-semibold text-slate-900 text-base">Peserta Pelatihan GitHub — Ruang Kreatif HIMA KA</h3>
+              <span class="text-xs font-mono font-medium text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full w-fit">September 2026</span>
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Mempelajari pencatatan riwayat perubahan berkas, manajemen alur kerja Git, serta praktik kolaborasi dokumen modern menggunakan platform GitHub.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pendidikan -->
+      <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-sm print-card">
+        <h2 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+          <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+          </svg>
+          Pendidikan
+        </h2>
+
+        <!-- GANTI: Pendidikan Item -->
+        <div class="bg-slate-50 rounded-xl p-5 border border-slate-200/60">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+            <h3 class="font-bold text-slate-900 text-base">Universitas Komputer Indonesia</h3>
+            <span class="text-xs font-mono font-medium text-slate-500">2025 – Sekarang</span>
+          </div>
+          <p class="text-emerald-700 font-medium text-sm mb-2">Program Studi Komputerisasi Akuntansi</p>
+          <p class="text-slate-600 text-sm">
+            <strong class="text-slate-700">Mata kuliah yang diminati:</strong> Sistem Informasi Akuntansi dan Pengolahan Data Keuangan.
+          </p>
+        </div>
+      </section>
+
+      <!-- Kontak & Tautan -->
+      <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-sm print-card">
+        <h2 class="text-lg font-bold text-slate-900 mb-5 flex items-center gap-2">
+          <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          Hubungi Saya
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <!-- GANTI: GitHub Link -->
+          <a href="https://github.com/rabani919" target="_blank" rel="noopener noreferrer" class="group flex items-center p-3.5 bg-slate-50 hover:bg-emerald-50 rounded-xl border border-slate-200/60 transition-all duration-200">
+            <div class="w-9 h-9 rounded-lg bg-slate-200 group-hover:bg-emerald-100 group-hover:text-emerald-700 text-slate-700 flex items-center justify-center mr-3 font-mono font-bold text-xs transition-colors">
+              GH
+            </div>
+            <div class="overflow-hidden">
+              <span class="text-xs text-slate-400 block font-medium">GitHub</span>
+              <span class="text-sm font-semibold text-slate-800 group-hover:text-emerald-700 truncate block">rabani919</span>
+            </div>
+          </a>
+
+          <!-- GANTI: Email Link -->
+          <a href="mailto:rabani.11025010@mahasiswa.unikom.ac.id" class="group flex items-center p-3.5 bg-slate-50 hover:bg-emerald-50 rounded-xl border border-slate-200/60 transition-all duration-200">
+            <div class="w-9 h-9 rounded-lg bg-slate-200 group-hover:bg-emerald-100 group-hover:text-emerald-700 text-slate-700 flex items-center justify-center mr-3 font-mono font-bold text-xs transition-colors">
+              EM
+            </div>
+            <div class="overflow-hidden">
+              <span class="text-xs text-slate-400 block font-medium">Email</span>
+              <span class="text-sm font-semibold text-slate-800 group-hover:text-emerald-700 truncate block">Kirim Email</span>
+            </div>
+          </a>
+
+          <!-- GANTI: Instagram Link -->
+          <a href="https://instagram.com/rabanihanafiah" target="_blank" rel="noopener noreferrer" class="group flex items-center p-3.5 bg-slate-50 hover:bg-emerald-50 rounded-xl border border-slate-200/60 transition-all duration-200">
+            <div class="w-9 h-9 rounded-lg bg-slate-200 group-hover:bg-emerald-100 group-hover:text-emerald-700 text-slate-700 flex items-center justify-center mr-3 font-mono font-bold text-xs transition-colors">
+              IG
+            </div>
+            <div class="overflow-hidden">
+              <span class="text-xs text-slate-400 block font-medium">Instagram</span>
+              <span class="text-sm font-semibold text-slate-800 group-hover:text-emerald-700 truncate block">@rabanihanafiah</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center pt-4 pb-6 text-xs text-slate-400 border-t border-slate-200/60">
+      <p>Dibuat saat Pelatihan GitHub, Ruang Kreatif HIMA KA UNIKOM.</p>
+    </footer>
+
   </div>
-</header>
-
-<div class="wrap">
-
-  <!-- GANTI: isi setelah <dd> dengan data kamu.
-       Mau menambah baris? Salin satu blok <div class="row"> lalu ubah isinya. -->
-  <dl class="card">
-    <div class="row">
-      <dt>NIM</dt>
-      <dd>11025010</dd>
-    </div>
-    <div class="row">
-      <dt>Angkatan</dt>
-      <dd>2025</dd>
-    </div>
-    <div class="row">
-      <dt>Domisili</dt>
-      <dd>Bandung</dd>
-    </div>
-    <div class="row">
-      <dt>Email</dt>
-      <dd>rabani.11025010@mahasiswa.unikom.ac.id</dd>
-    </div>
-  </dl>
-
-  <section>
-    <h2>Tentang saya</h2>
-    <!-- GANTI: dua sampai tiga kalimat. Tulis apa yang kamu bisa dan
-         sedang pelajari, bukan sifat seperti rajin atau pekerja keras. -->
-    <p class="lead">
-      Mahasiswa semester tiga  yang tertarik pada pencatatan keuangan berbasis sistem.
-      Terbiasa mengolah data transaksi dengan Excel dan menyusun laporan keuangan sederhana,
-      serta sedang mempelajari SQL untuk menarik data dari basis data.
-    </p>
-  </section>
-
-  <section>
-    <h2>Kemampuan</h2>
-    <!-- GANTI: tambah atau hapus <li> sesuai kemampuan kamu -->
-    <ul class="tags">
-      <li>Microsoft Excel</li>
-      <li>Lookup dan pivot table</li>
-      <li>Jurnal dan laporan keuangan</li>
-      <li>Zahir Accounting</li>
-      <li>MYOB</li>
-      <li>SQL dasar</li>
-      <li>GitHub</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Pengalaman</h2>
-
-    <!-- GANTI: satu blok untuk satu pengalaman.
-         Salin seluruh blok <div class="item"> kalau mau menambah. -->
-    <div class="item">
-      <h3>Backend Developer PT. Swamedia Informatika</h3>
-      <p class="meta">2023 sampai 2024</p>
-      <p>Menyusun laporan database.</p>
-    </div>
-
-    <div class="item">
-      <h3>Peserta Pelatihan GitHub, Ruang Kreatif HIMA KA</h3>
-      <p class="meta">September 2026</p>
-      <p>Mempelajari pencatatan riwayat perubahan berkas dan kolaborasi dokumen menggunakan GitHub.</p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Pendidikan</h2>
-
-    <!-- GANTI: riwayat pendidikan kamu -->
-    <div class="item">
-      <h3>Universitas Komputer Indonesia</h3>
-      <p class="meta">Komputerisasi Akuntansi, 2025 sampai sekarang</p>
-      <p>Mata kuliah yang diminati: sistem informasi akuntansi, dan pengolahan data keuangan.</p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Kontak</h2>
-    <!-- GANTI: username dan alamat kamu. Bagian setelah href= juga ikut diganti. -->
-    <dl class="card contact">
-      <div class="row">
-        <dt>GitHub</dt>
-        <dd><a href="https://github.com/namaakunkamu">github.com/rabani919</a></dd>
-      </div>
-      <div class="row">
-        <dt>Email</dt>
-        <dd><a href="mailto:email@kamu.com">rabani.11025010@mahasiswa.unikom.ac.id</a></dd>
-      </div>
-      <div class="row">
-        <dt>Instagram</dt>
-        <dd><a href="https://instagram.com/akunkamu">@rabanihanafiah</a></dd>
-      </div>
-    </dl>
-  </section>
-
-  <footer>
-    Dibuat saat Pelatihan GitHub, Ruang Kreatif HIMA KA UNIKOM, September 2026.
-  </footer>
-
-</div>
 
 </body>
 </html>
